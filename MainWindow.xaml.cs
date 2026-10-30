@@ -7,10 +7,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System;
 using System.Windows.Threading;
-using TextBox = System.Windows.Controls.TextBox;
+using System.IO;
+
 
 
 namespace ids;
@@ -23,14 +23,32 @@ public partial class MainWindow : Window
 
     private DispatcherTimer _holdTimer;
     private bool _mouseHeld;
+    private DispatcherTimer _announcementTimer;
+    
+    
     public MainWindow()
-    {
-        InitializeComponent();
-        _holdTimer = new DispatcherTimer();
-        _holdTimer.Interval = TimeSpan.FromSeconds(5);
-        _holdTimer.Tick += HoldTimer_Tick;
-    }
+{
+    InitializeComponent();
 
+    _holdTimer = new DispatcherTimer();
+    _holdTimer.Interval = TimeSpan.FromSeconds(5);
+    _holdTimer.Tick += HoldTimer_Tick;
+
+    _announcementTimer = new DispatcherTimer();
+    _announcementTimer.Interval = TimeSpan.FromSeconds(5);
+    _announcementTimer.Tick += AnnouncementTimer_Tick;
+
+    var logoPath = @"Assets\Logos\logo.png";
+
+    if (File.Exists(logoPath))
+    {
+        CompanyLogo.Source =
+            new BitmapImage(
+                new Uri(
+                    System.IO.Path.GetFullPath(logoPath)));
+    }
+}
+    
     private void Window_MouseDown(object sender, MouseButtonEventArgs e)
     {
         _mouseHeld = true;
@@ -71,12 +89,33 @@ public partial class MainWindow : Window
     }
 
     private void ShowPasswordDialog()
-{
-    var passwordWindow = new PasswordWindow();
-
-    if (passwordWindow.ShowDialog() == true)
     {
-        MessageBox.Show("Settings would open here.");
+        var passwordWindow = new PasswordWindow();
+
+        if (passwordWindow.ShowDialog() == true)
+        {
+            MessageBox.Show("Settings would open here.");
+        }
+    } 
+    private void ShowOrderReady(string orderNo, string counter)
+    {
+        OrderNumberText.Text = orderNo;
+        CounterText.Text = counter;
+
+        OrderPopup.Visibility = Visibility.Visible;
+
+        _announcementTimer.Start();
     }
-}
+
+    private void AnnouncementTimer_Tick(object? sender, EventArgs e)
+    {
+        _announcementTimer.Stop();
+
+        OrderPopup.Visibility = Visibility.Collapsed;
+    } 
+    private void BtnTestOrder_Click(object sender, RoutedEventArgs e)
+    {
+        ShowOrderReady("A123", "Counter 5");
+    } 
+    
 }
