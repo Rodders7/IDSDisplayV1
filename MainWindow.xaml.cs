@@ -10,6 +10,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System;
 using System.Windows.Threading;
+using TextBox = System.Windows.Controls.TextBox;
+
 
 namespace ids;
 

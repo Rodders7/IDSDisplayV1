@@ -46,3 +46,12 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+# .NET / WPF
+bin/
+obj/
+.vs/
+.vscode/
+
+*.user
+*.suo
+*.cache
