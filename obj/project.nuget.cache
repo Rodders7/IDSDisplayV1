@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "xnXYX4QmedU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Rodney\\Documents\\Flutter Projects\\IDS\\ids\\ids.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Rodney\\.nuget\\packages\\libvlcsharp\\3.10.2\\libvlcsharp.3.10.2.nupkg.sha512",
+    "C:\\Users\\Rodney\\.nuget\\packages\\libvlcsharp.wpf\\3.10.2\\libvlcsharp.wpf.3.10.2.nupkg.sha512",
+    "C:\\Users\\Rodney\\.nuget\\packages\\naudio\\3.3.0\\naudio.3.3.0.nupkg.sha512",
+    "C:\\Users\\Rodney\\.nuget\\packages\\naudio.core\\3.3.0\\naudio.core.3.3.0.nupkg.sha512",
+    "C:\\Users\\Rodney\\.nuget\\packages\\naudio.midi\\3.3.0\\naudio.midi.3.3.0.nupkg.sha512",
+    "C:\\Users\\Rodney\\.nuget\\packages\\naudio.wasapi\\3.3.0\\naudio.wasapi.3.3.0.nupkg.sha512",
+    "C:\\Users\\Rodney\\.nuget\\packages\\naudio.winmm\\3.3.0\\naudio.winmm.3.3.0.nupkg.sha512",
+    "C:\\Users\\Rodney\\.nuget\\packages\\system.numerics.tensors\\9.0.0\\system.numerics.tensors.9.0.0.nupkg.sha512",
+    "C:\\Users\\Rodney\\.nuget\\packages\\videolan.libvlc.windows\\3.0.24\\videolan.libvlc.windows.3.0.24.nupkg.sha512"
+  ],
+  "logs": []
+}
